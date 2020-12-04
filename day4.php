@@ -34,11 +34,11 @@ $passports = array_map(
 
 $validPasswordsPart1 = array_filter(
 	$passports,
-	static function (array $passport) use ($expectedFields): bool {
-		$fieldsMissing = array_diff($expectedFields, array_keys($passport));
-
-		return empty($fieldsMissing) || (['cid'] === array_values($fieldsMissing));
-	}
+	static fn(array $passport): bool => in_array(
+		array_values(array_diff($expectedFields, array_keys($passport))),
+		[[], ['cid']],
+		true
+	)
 );
 
 echo count($validPasswordsPart1), "\n";
@@ -47,31 +47,17 @@ echo count($validPasswordsPart1), "\n";
 
 /** @var array<string, callable> $isValidCbs */
 $isValidCbs = [
-	'byr' => static function (string $data): bool {
-		return preg_match('/^19[2-9][0-9]|200[012]$/', $data);
-		// or ctype_digit($data) && (int)$data >= 1920 && (int)$data <= 2002;
-	},
-	'iyr' => static function (string $data): bool {
-		return preg_match('/^20(?:1[0-9]|20)$/', $data);
-	},
-	'eyr' => static function (string $data): bool {
-		return preg_match('/^20(?:2[0-9]|30)$/', $data);
-	},
-	'hgt' => static function (string $data): bool {
-		return preg_match('/^(?:(?:15[0-9]|1[6-8][0-9]|19[0-3])cm|(?:59|6[0-9]|7[0-6])in)$/', $data);
-	},
-	'hcl' => static function (string $data): bool {
-		return preg_match('/^#[0-9a-f]{6}$/', $data);
-	},
-	'ecl' => static function (string $data): bool {
-		return in_array($data, ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'], true);
-	},
-	'pid' => static function (string $data): bool {
-		return preg_match('/^[0-9]{9}$/', $data); // 9 === strlen($data) && ctype_digit($data);
-	},
-	'cid' => static function (string $data): bool {
-		return true;
-	},
+	'byr' => static fn(string $data): bool => preg_match('/^19[2-9][0-9]|200[012]$/', $data),
+	'iyr' => static fn(string $data): bool => preg_match('/^20(?:1[0-9]|20)$/', $data),
+	'eyr' => static fn(string $data): bool => preg_match('/^20(?:2[0-9]|30)$/', $data),
+	'hgt' => static fn(string $data): bool => preg_match(
+		'/^(?:(?:15[0-9]|1[6-8][0-9]|19[0-3])cm|(?:59|6[0-9]|7[0-6])in)$/',
+		$data
+	),
+	'hcl' => static fn(string $data): bool => preg_match('/^#[0-9a-f]{6}$/', $data),
+	'ecl' => static fn(string $data): bool => in_array($data, ['amb', 'blu', 'brn', 'gry', 'grn', 'hzl', 'oth'], true),
+	'pid' => static fn(string $data): bool => preg_match('/^[0-9]{9}$/', $data),
+	'cid' => static fn(string $data): bool => true,
 ];
 
 $validPasswordsPart2 = array_filter(
