@@ -4,7 +4,7 @@ namespace prgTW\AdventOfCode2020\Day5;
 
 $input = file_get_contents('day5.txt');
 
-/** @var array<array{row: string, seat: string}> $passports */
+/** @var array<array{row: string, seat: string}> $parsed */
 $parsed = array_map(
 	static function (string $line): array {
 		preg_match('/^(?P<row>[FB]{7})(?P<seat>[LR]{3})/', $line, $matches);
