@@ -1,6 +1,6 @@
 <?php
 
-namespace prgTW\AdventOfCode2020\Day5;
+namespace prgTW\AdventOfCode2020\Day6;
 
 $input = file_get_contents('day6.txt');
 
