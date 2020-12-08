@@ -27,6 +27,10 @@ class Day3Test extends AbstractDayTestCase implements HasPart1Tests, HasPart2Tes
 			file_get_contents(__DIR__.'/fixtures/day3/day3_1.txt'),
 			7,
 		];
+		yield [
+			file_get_contents(__DIR__.'/../input/day3.txt'),
+			214,
+		];
 	}
 
 	public function getPart2TestInputs(): iterable
@@ -34,6 +38,10 @@ class Day3Test extends AbstractDayTestCase implements HasPart1Tests, HasPart2Tes
 		yield [
 			file_get_contents(__DIR__.'/fixtures/day3/day3_1.txt'),
 			336,
+		];
+		yield [
+			file_get_contents(__DIR__.'/../input/day3.txt'),
+			8336352024,
 		];
 	}
 }
