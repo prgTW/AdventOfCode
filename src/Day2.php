@@ -13,7 +13,7 @@ class Day2 extends AbstractDayChallenge
 	{
 		parent::__construct($inputFilePath);
 		preg_match_all(
-			'/^(?P<min>\d+)\\-(?P<max>\d+)\s(?P<char>.): (?P<pass>.+?)$/im',
+			'/^(?P<min>\d+)-(?P<max>\d+)\s(?P<char>.): (?P<pass>.+?)$/im',
 			$this->input,
 			$passwords,
 			PREG_SET_ORDER
