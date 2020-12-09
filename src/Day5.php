@@ -34,17 +34,15 @@ class Day5 extends AbstractDayChallenge
 		natsort($seatIds);
 		$seatIds = array_values($seatIds); // reindex the array
 
-		$mySeatId = null;
 		for ($i = 1, $noSeats = count($seatIds); $i <= $noSeats - 2; ++$i) {
 			$currSeatId = $seatIds[$i];
 			$nextSeatId = $seatIds[$i + 1];
 			if ($nextSeatId === $currSeatId + 2 && $nextSeatId - 2 === $currSeatId) {
-				$mySeatId = $currSeatId + 1; // (($currSeatId + $nextSeatId) / 2)
-				break;
+				return $currSeatId + 1; // (($currSeatId + $nextSeatId) / 2)
 			}
 		}
 
-		return $mySeatId;
+		return null; // no seat missing
 	}
 
 	/**
