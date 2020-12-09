@@ -20,12 +20,12 @@ class Day3 extends AbstractDayChallenge
 		);
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		return $this->countTrees(3, 1);
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		$treesCounts = array_map(
 			function (array $data): int {

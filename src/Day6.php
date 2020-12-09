@@ -19,7 +19,7 @@ class Day6 extends AbstractDayChallenge
 	}
 
 
-	public function part1()
+	public function part1(): int
 	{
 		return array_sum(
 			array_map(
@@ -31,7 +31,7 @@ class Day6 extends AbstractDayChallenge
 		);
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		$uniqueAnswersPerGroup = array_map(
 			static function (array $answersPerPerson): int {

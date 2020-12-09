@@ -40,12 +40,12 @@ class Day4 extends AbstractDayChallenge
 		);
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		return count($this->getValidPasswordsForPart1());
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		/** @var array<string, callable> $isValidCbs */
 		$isValidCbs = [
@@ -83,7 +83,7 @@ class Day4 extends AbstractDayChallenge
 	}
 
 	/**
-	 * @return array|array[]|\string[][]
+	 * @return string[]
 	 */
 	private function getValidPasswordsForPart1(): array
 	{

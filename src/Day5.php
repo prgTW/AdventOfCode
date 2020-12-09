@@ -22,12 +22,12 @@ class Day5 extends AbstractDayChallenge
 		);
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		return max($this->getSeatIds());
 	}
 
-	public function part2()
+	public function part2(): ?int
 	{
 		$seatIds = $this->getSeatIds();
 

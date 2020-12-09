@@ -21,7 +21,7 @@ class Day2 extends AbstractDayChallenge
 		$this->passwords = $passwords;
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		$passwordsValidPart1 = array_filter(
 			$this->passwords,
@@ -36,7 +36,7 @@ class Day2 extends AbstractDayChallenge
 		return count($passwordsValidPart1);
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		$passwordsValidPart2 = array_filter(
 			$this->passwords,

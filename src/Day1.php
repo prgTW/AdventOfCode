@@ -14,7 +14,7 @@ class Day1 extends AbstractDayChallenge
 		$this->numbers = array_filter(explode("\n", $this->input));
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		$max = count($this->numbers);
 
@@ -27,7 +27,7 @@ class Day1 extends AbstractDayChallenge
 		}
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		$max = count($this->numbers);
 

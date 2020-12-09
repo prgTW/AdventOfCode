@@ -31,7 +31,7 @@ class Day8 extends AbstractDayChallenge
 		$this->noInstructions = count($this->instructions);
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		try {
 			$this->runProgram($this->instructions);
@@ -40,7 +40,7 @@ class Day8 extends AbstractDayChallenge
 		}
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		$possiblyCorruptedInstructionPointers = array_keys(
 			array_filter(

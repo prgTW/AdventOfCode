@@ -41,12 +41,12 @@ class Day7 extends AbstractDayChallenge
 		$this->rules = array_column($rules, null, 'bagName');
 	}
 
-	public function part1()
+	public function part1(): int
 	{
 		return count(array_unique(iterator_to_array($this->bagNamesThatContains('shiny gold'))));
 	}
 
-	public function part2()
+	public function part2(): int
 	{
 		return iterator_count($this->howManyBagsInside('shiny gold'));
 	}
