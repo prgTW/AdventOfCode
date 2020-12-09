@@ -27,9 +27,9 @@ class Day2 extends AbstractDayChallenge
 			$this->passwords,
 			static function ($line): bool {
 				['min' => $min, 'max' => $max, 'char' => $char, 'pass' => $password] = $line;
-				$noOccurences = substr_count($password, $char);
+				$noOccurrences = substr_count($password, $char);
 
-				return $noOccurences >= $min && $noOccurences <= $max;
+				return $noOccurrences >= $min && $noOccurrences <= $max;
 			}
 		);
 
