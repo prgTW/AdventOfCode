@@ -24,7 +24,7 @@ class Day6 extends AbstractDayChallenge
 		return array_sum(
 			array_map(
 				static fn(array $answersPerPerson): int => count(
-					array_unique(str_split(implode('', $answersPerPerson), 1))
+					array_unique(str_split(implode('', $answersPerPerson)))
 				),
 				$this->parsedInput
 			)
@@ -36,7 +36,7 @@ class Day6 extends AbstractDayChallenge
 		$uniqueAnswersPerGroup = array_map(
 			static function (array $answersPerPerson): int {
 				$uniqueAnswersPerPerson = array_map(
-					static fn(string $personAnswers): array => array_unique(str_split($personAnswers, 1)),
+					static fn(string $personAnswers): array => array_unique(str_split($personAnswers)),
 					$answersPerPerson
 				);
 
