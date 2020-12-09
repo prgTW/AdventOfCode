@@ -3,17 +3,15 @@
 namespace prgTW\AdventOfCode2020\Impl;
 
 use prgTW\AdventOfCode2020\Impl\Contracts\AbstractDayChallenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart1Challenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart2Challenge;
 
-class Day5 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Challenge
+class Day5 extends AbstractDayChallenge
 {
 	/** @var array<array{row: string, seat: string}> */
 	private array $parsed;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		parent::__construct($input);
+		parent::__construct($inputFilePath);
 		$this->parsed = array_map(
 			static function (string $line): array {
 				preg_match('/^(?P<row>[FB]{7})(?P<seat>[LR]{3})/', $line, $matches);

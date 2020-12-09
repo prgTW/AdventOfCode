@@ -4,17 +4,15 @@ namespace prgTW\AdventOfCode2020\Impl;
 
 use Generator;
 use prgTW\AdventOfCode2020\Impl\Contracts\AbstractDayChallenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart1Challenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart2Challenge;
 
-class Day7 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Challenge
+class Day7 extends AbstractDayChallenge
 {
 	/** @var array{bagName: string, nestedBags: array{bagName: string, quantity: int}} */
 	private array $rules;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		parent::__construct($input);
+		parent::__construct($inputFilePath);
 
 		$rules       = array_map(
 			static function (string $rule): array {

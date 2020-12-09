@@ -5,19 +5,17 @@ declare(strict_types=1);
 namespace prgTW\AdventOfCode2020\Impl;
 
 use prgTW\AdventOfCode2020\Impl\Contracts\AbstractDayChallenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart1Challenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart2Challenge;
 use prgTW\AdventOfCode2020\Impl\Exception\InfiniteLoopException;
 
-class Day8 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Challenge
+class Day8 extends AbstractDayChallenge
 {
 	/** @var array<array{op: string, arg: int}> */
 	private array $instructions;
 	private int $noInstructions;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		parent::__construct($input);
+		parent::__construct($inputFilePath);
 
 		$this->instructions   = array_map(
 			static function (string $line): array {

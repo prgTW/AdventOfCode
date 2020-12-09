@@ -3,17 +3,15 @@
 namespace prgTW\AdventOfCode2020\Impl;
 
 use prgTW\AdventOfCode2020\Impl\Contracts\AbstractDayChallenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart1Challenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart2Challenge;
 
-class Day2 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Challenge
+class Day2 extends AbstractDayChallenge
 {
 	/** @var array<array{min: int, max: int, char: string, pass: string}> */
 	private array $passwords;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		parent::__construct($input);
+		parent::__construct($inputFilePath);
 		preg_match_all(
 			'/^(?P<min>\d+)\\-(?P<max>\d+)\s(?P<char>.): (?P<pass>.+?)$/im',
 			$this->input,

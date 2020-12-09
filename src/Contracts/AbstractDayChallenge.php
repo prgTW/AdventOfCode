@@ -8,8 +8,8 @@ abstract class AbstractDayChallenge
 {
 	protected string $input;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		$this->input = rtrim($input, "\n");
+		$this->input = rtrim(file_get_contents($inputFilePath), "\n");
 	}
 }

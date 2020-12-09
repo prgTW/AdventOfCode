@@ -3,10 +3,8 @@
 namespace prgTW\AdventOfCode2020\Impl;
 
 use prgTW\AdventOfCode2020\Impl\Contracts\AbstractDayChallenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart1Challenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart2Challenge;
 
-class Day4 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Challenge
+class Day4 extends AbstractDayChallenge
 {
 	/** @var array<string> */
 	private const EXPECTED_FIELDS = [
@@ -23,9 +21,9 @@ class Day4 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Ch
 	/** @var array<array<string, string>> $passports */
 	private array $passports;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		parent::__construct($input);
+		parent::__construct($inputFilePath);
 		$this->passports = array_map(
 			static function (string $line): array {
 				$fields = preg_split("/\\s/", $line, -1, PREG_SPLIT_NO_EMPTY);

@@ -4,48 +4,38 @@ declare(strict_types=1);
 
 namespace prgTW\AdventOfCode2020\Tests;
 
+use PHPUnit\Framework\TestCase;
 use prgTW\AdventOfCode2020\Impl\Day4;
-use prgTW\AdventOfCode2020\Tests\Contracts\AbstractDayTestCase;
-use prgTW\AdventOfCode2020\Tests\Contracts\HasPart1Tests;
-use prgTW\AdventOfCode2020\Tests\Contracts\HasPart2Tests;
-use prgTW\AdventOfCode2020\Tests\Contracts\Part1Tests;
-use prgTW\AdventOfCode2020\Tests\Contracts\Part2Tests;
 
-class Day4Test extends AbstractDayTestCase implements HasPart1Tests, HasPart2Tests
+class Day4Test extends TestCase
 {
-	use Part1Tests;
-	use Part2Tests;
-
-	protected function getTestClass(): string
+	public function testPart1TestInput(): void
 	{
-		return Day4::class;
+		$challenge = new Day4(__DIR__.'/fixtures/day4/day4_1.txt');
+		self::assertSame(2, $challenge->part1());
 	}
 
-	public function getPart1TestInputs(): iterable
+	public function testPart1RealInput(): void
 	{
-		yield [
-			file_get_contents(__DIR__.'/fixtures/day4/day4_1.txt'),
-			2,
-		];
-		yield [
-			file_get_contents(__DIR__.'/../input/day4.txt'),
-			213,
-		];
+		$challenge = new Day4(__DIR__.'/../input/day4.txt');
+		self::assertSame(213, $challenge->part1());
 	}
 
-	public function getPart2TestInputs(): iterable
+	public function testPart2TestInput(): void
 	{
-		yield [
-			file_get_contents(__DIR__.'/fixtures/day4/day4_2_invalid_passwords.txt'),
-			0,
-		];
-		yield [
-			file_get_contents(__DIR__.'/fixtures/day4/day4_3_valid_passwords.txt'),
-			4,
-		];
-		yield [
-			file_get_contents(__DIR__.'/../input/day4.txt'),
-			147,
-		];
+		$challenge = new Day4(__DIR__.'/fixtures/day4/day4_2_invalid_passwords.txt');
+		self::assertSame(0, $challenge->part2());
+	}
+
+	public function testPart2TestInput2(): void
+	{
+		$challenge = new Day4(__DIR__.'/fixtures/day4/day4_3_valid_passwords.txt');
+		self::assertSame(4, $challenge->part2());
+	}
+
+	public function testPart2RealInput(): void
+	{
+		$challenge = new Day4(__DIR__.'/../input/day4.txt');
+		self::assertSame(147, $challenge->part2());
 	}
 }

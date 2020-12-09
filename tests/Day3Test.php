@@ -4,44 +4,32 @@ declare(strict_types=1);
 
 namespace prgTW\AdventOfCode2020\Tests;
 
+use PHPUnit\Framework\TestCase;
 use prgTW\AdventOfCode2020\Impl\Day3;
-use prgTW\AdventOfCode2020\Tests\Contracts\AbstractDayTestCase;
-use prgTW\AdventOfCode2020\Tests\Contracts\HasPart1Tests;
-use prgTW\AdventOfCode2020\Tests\Contracts\HasPart2Tests;
-use prgTW\AdventOfCode2020\Tests\Contracts\Part1Tests;
-use prgTW\AdventOfCode2020\Tests\Contracts\Part2Tests;
 
-class Day3Test extends AbstractDayTestCase implements HasPart1Tests, HasPart2Tests
+class Day3Test extends TestCase
 {
-	use Part1Tests;
-	use Part2Tests;
-
-	protected function getTestClass(): string
+	public function testPart1TestInput(): void
 	{
-		return Day3::class;
+		$challenge = new Day3(__DIR__.'/fixtures/day3/day3_1.txt');
+		self::assertSame(7, $challenge->part1());
 	}
 
-	public function getPart1TestInputs(): iterable
+	public function testPart1RealInput(): void
 	{
-		yield [
-			file_get_contents(__DIR__.'/fixtures/day3/day3_1.txt'),
-			7,
-		];
-		yield [
-			file_get_contents(__DIR__.'/../input/day3.txt'),
-			214,
-		];
+		$challenge = new Day3(__DIR__.'/../input/day3.txt');
+		self::assertSame(214, $challenge->part1());
 	}
 
-	public function getPart2TestInputs(): iterable
+	public function testPart2TestInput(): void
 	{
-		yield [
-			file_get_contents(__DIR__.'/fixtures/day3/day3_1.txt'),
-			336,
-		];
-		yield [
-			file_get_contents(__DIR__.'/../input/day3.txt'),
-			8336352024,
-		];
+		$challenge = new Day3(__DIR__.'/fixtures/day3/day3_1.txt');
+		self::assertSame(336, $challenge->part2());
+	}
+
+	public function testPart2RealInput(): void
+	{
+		$challenge = new Day3(__DIR__.'/../input/day3.txt');
+		self::assertSame(8336352024, $challenge->part2());
 	}
 }

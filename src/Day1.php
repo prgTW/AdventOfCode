@@ -3,16 +3,14 @@
 namespace prgTW\AdventOfCode2020\Impl;
 
 use prgTW\AdventOfCode2020\Impl\Contracts\AbstractDayChallenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart1Challenge;
-use prgTW\AdventOfCode2020\Impl\Contracts\HasPart2Challenge;
 
-class Day1 extends AbstractDayChallenge implements HasPart1Challenge, HasPart2Challenge
+class Day1 extends AbstractDayChallenge
 {
 	private array $numbers;
 
-	public function __construct(string $input)
+	public function __construct(string $inputFilePath)
 	{
-		parent::__construct($input);
+		parent::__construct($inputFilePath);
 		$this->numbers = array_filter(explode("\n", $this->input));
 	}
 
