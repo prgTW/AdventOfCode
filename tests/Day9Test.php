@@ -15,6 +15,9 @@ class Day9Test extends TestCase
 		self::assertSame(127, $class->part1());
 	}
 
+	/**
+	 * @depends testPart1TestInput
+	 */
 	public function testPart1RealInput(): void
 	{
 		$class = new Day9(__DIR__.'/../input/day9.txt', 25);
@@ -27,6 +30,9 @@ class Day9Test extends TestCase
 		self::assertSame(62, $class->part2());
 	}
 
+	/**
+	 * @depends testPart2TestInput
+	 */
 	public function testPart2RealInput(): void
 	{
 		$class = new Day9(__DIR__.'/../input/day9.txt', 25);
