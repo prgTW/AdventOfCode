@@ -57,7 +57,7 @@ class Day9 extends AbstractDayChallenge
 	 * @param int $minIdx
 	 * @param int $maxIdx
 	 *
-	 * @return Generator|array<{0: int, 1: int}>
+	 * @return Generator|array<array<{0: int, 1: int}>>
 	 */
 	private function getMatchingPairs(int $number, int $minIdx, int $maxIdx): Generator
 	{
