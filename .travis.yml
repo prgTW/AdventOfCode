@@ -8,6 +8,7 @@ before_script:
   - composer install -v
 script:
   - vendor/bin/phpunit -c phpunit.xml.dist --testsuite 'Year 2020'
+  - vendor/bin/phpunit -c phpunit.xml.dist --testsuite 'Year 2023'
 jobs:
   fast_finish: true
 
