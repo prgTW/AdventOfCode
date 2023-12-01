@@ -7,7 +7,7 @@ before_script:
   - phpenv config-rm xdebug.ini
   - composer install -v
 script:
-  - vendor/bin/phpunit -v tests/
+  - vendor/bin/phpunit -c phpunit.xml.dist --testsuite 'Year 2020'
 jobs:
   fast_finish: true
 
