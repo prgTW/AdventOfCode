@@ -12,4 +12,14 @@ abstract class AbstractDayChallenge
     {
         $this->input = rtrim(file_get_contents($inputFilePath), "\n");
     }
+
+    /**
+     * @return iterable<string>
+     */
+    protected function lines(): iterable
+    {
+        foreach (explode("\n", $this->input) as $line) {
+            yield $line;
+        }
+    }
 }
