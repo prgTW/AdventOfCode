@@ -26,7 +26,7 @@ class Day2Test extends TestCase
 
     public function testPart2TestInput(): void
     {
-        $challenge = new Day2(__DIR__.'/../fixtures/2023/day2/day2_2.txt');
+        $challenge = new Day2(__DIR__.'/../fixtures/2023/day2/day2_1.txt');
         self::assertSame(2286, $challenge->part2());
     }
 
