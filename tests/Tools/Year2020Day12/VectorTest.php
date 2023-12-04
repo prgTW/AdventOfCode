@@ -47,10 +47,17 @@ class VectorTest extends TestCase
     {
         $newVector = $vector->rotate($angle, $clockwise);
 
-        self::assertEquals($expectedVector, $newVector);
+        self::assertSame(
+            number_format($expectedVector->getX(), 10, '.', ''),
+            number_format($newVector->getX(), 10, '.', '')
+        );
+        self::assertSame(
+            number_format($expectedVector->getY(), 10, '.', ''),
+            number_format($newVector->getY(), 10, '.', '')
+        );
     }
 
-    public function provideRotations(): iterable
+    public static function provideRotations(): iterable
     {
         return [
             [new Vector(0, 0), 0, true, new Vector(0, 0)],

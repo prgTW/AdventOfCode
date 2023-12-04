@@ -21,7 +21,7 @@ class GameOfLifeTest extends TestCase
         );
     }
 
-    public function providePart1GenerationChain(): iterable
+    public static function providePart1GenerationChain(): iterable
     {
         yield [
             __DIR__.'../../../fixtures/2020/day11/day11_part1_1.txt',
@@ -57,7 +57,7 @@ class GameOfLifeTest extends TestCase
         );
     }
 
-    public function providePart2GenerationChain(): iterable
+    public static function providePart2GenerationChain(): iterable
     {
         yield [
             __DIR__.'../../../fixtures/2020/day11/day11_part2_4.txt',

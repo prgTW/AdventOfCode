@@ -2,4 +2,4 @@
 
 https://adventofcode.com/
 
-[![Build Status](https://travis-ci.org/prgTW/AdventOfCode.svg?branch=master)](https://travis-ci.org/prgTW/AdventOfCode)
+[![.github/workflows/tests.yaml](https://github.com/prgTW/AdventOfCode/actions/workflows/tests.yaml/badge.svg?branch=master)](https://github.com/prgTW/AdventOfCode/actions/workflows/tests.yaml)
