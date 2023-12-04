@@ -29,7 +29,7 @@ class NearestAdjacencyStrategyTest extends TestCase
         self::assertSame($expectedCount, iterator_count($adjacentSeats), 'Wrong number of seats found');
     }
 
-    public function provideGetAdjacentSeatsInputs(): iterable
+    public static function provideGetAdjacentSeatsInputs(): iterable
     {
         return [
             [__DIR__.'/../../fixtures/2020/day11/day11_part2_1.txt', 3, 4, Seat::OCCUPIED, 8],
